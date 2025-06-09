@@ -67,3 +67,32 @@ for uploaded_file in uploaded_files:
     bytes_data = uploaded_file.read()
     st.write("filename:", uploaded_file.name)
     st.write(bytes_data)
+
+agree = st.checkbox("I agree")
+
+if agree:
+    st.write("Great!")
+
+color = st.color_picker("Pick a color", "#00F900")
+st.write("The current color is", color)
+
+sentiment_mapping = ["one", "two", "three", "four", "five"]
+selected = st.feedback("stars")
+
+if selected is not None:
+    st.markdown(f"You selected {sentiment_mapping[selected]} star(s).")
+
+options = st.multiselect(
+    "what are you favorite colors?",
+    ["Green", "Yellow", "Red", "Blue"],
+    default=["Yellow", "Red"],
+)
+
+st.write("You selected:", options)
+
+option = st.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone"),
+)
+
+st.write("You selected:", option)
